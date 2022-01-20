@@ -1,7 +1,10 @@
 [package]
 name = "espeak-ng"
+authors = ["Hunter Jozwiak <hunter.t.joz@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
+description = "Safe bindings bindings to the espeak-ng speech synthesizer."
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
