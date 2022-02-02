@@ -1,0 +1,32 @@
+name: Build and Run Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "master"
+
+env:
+  CARGO_TERM_COLOR: "always"
+  CARGO_INCREMENTAL: 0
+
+jobs:
+  run_tests:
+    name: Run Tests
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update the Repos
+        if: ${{ matrix.os == "ubuntu-latest" }}
+        run: sudo apt update
+      - name: Get Deps
+        if: ${{ matrix.os == "ubuntu-latest" }}
+        run: sudo apt install espeak-ng libespeak-ng-dev
+      - name: Test All Features
+        run: cargo test --all-features
+      - name: Test Release All Features
+        run: cargo test --release --all-features
