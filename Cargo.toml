@@ -1,0 +1,6 @@
+[workspace]
+members = [
+"voxd",
+"espeak-ng-sys",
+"espeak-ng",
+]
