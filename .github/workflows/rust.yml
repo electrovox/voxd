@@ -22,10 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Update the Repos
-        if: ${{ matrix.os == "ubuntu-latest" }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: sudo apt update
       - name: Get Deps
-        if: ${{ matrix.os == "ubuntu-latest" }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: sudo apt install espeak-ng libespeak-ng-dev
       - name: Test All Features
         run: cargo test --all-features
